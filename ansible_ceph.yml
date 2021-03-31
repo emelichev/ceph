@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+   - name: update
+     shell: yum update ceph-* -y
+     register: UPDATE
+
+   - debug: msg={{UPDATE.stdout}}
